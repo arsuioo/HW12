@@ -3,6 +3,10 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 public class TodosTest {
     @Test
     public void shouldAddThreeTasksOfDifferentType() {
@@ -30,7 +34,7 @@ public class TodosTest {
     }
 
     @Test
-    public void sho() {
+    public void simpleTaskEpikTest() {
         SimpleTask simpleTask = new SimpleTask(5, "Купить Хлеб");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
@@ -55,7 +59,7 @@ public class TodosTest {
     }
 
     @Test
-    public void shoа() {
+    public void epicTest() {
         SimpleTask simpleTask = new SimpleTask(5, "Купить Хлеб");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
@@ -80,7 +84,7 @@ public class TodosTest {
     }
 
     @Test
-    public void shfsf() {
+    public void epicZeroTest() {
         SimpleTask simpleTask = new SimpleTask(5, "Купить Хлеб");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
@@ -103,4 +107,49 @@ public class TodosTest {
         Task[] actual = todos.search("Йогурт");
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void testEqualst() {
+        Task[] tasks1 = {new SimpleTask(1, "Напиши ")};
+        Task[] tasks2 = {new SimpleTask(1, "Позвони")};
+        assertArrayEquals(tasks1, tasks2);
+    }
+
+    @Test
+    public void testEqualsNull() {
+        Task task1 = new SimpleTask(1, "Напиши");
+        Assertions.assertFalse(task1.equals(null));
+    }
+
+
+    @Test
+    public void testEqualsTasksTwo() {
+        Task task1 = new SimpleTask(1, "One");
+        Task task2 = new SimpleTask(2, "Two");
+        Assertions.assertFalse(task1.equals(task2));
+    }
+
+    @Test
+    public void testEqualsObject() {
+        Task task1 = new SimpleTask(1, "One");
+        Object object = new Object();
+        Assertions.assertFalse(task1.equals(object));
+    }
+
+    @Test
+    public void test() {
+        Task task1 = new SimpleTask(1, "One");
+        task1.hashCode();
+        Assertions.assertFalse(task1.equals(2));
+    }
+
+    @Test
+    public void tes2t() {
+        Task task1 = new SimpleTask(1, "One");
+        task1.hashCode();
+        Assertions.assertFalse(task1.matches("dd"));
+    }
 }
+
+
+
