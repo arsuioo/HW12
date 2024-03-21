@@ -4,13 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TasksTest {
-    @Test
-    public void simpleTaskTrue() {
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
-
-        boolean actual = simpleTask.matches("Позвони");
-        Assertions.assertTrue(actual);
-    }
 
     @Test
     public void simpleTaskFolse() {
@@ -18,6 +11,14 @@ public class TasksTest {
 
         boolean actual = simpleTask.matches("Доложить");
         Assertions.assertFalse(actual);
+    }
+
+    @Test
+    public void simpleTaskTrue() {
+        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+
+        boolean actual = simpleTask.matches("Позвони");
+        Assertions.assertTrue(actual);
     }
 
     @Test

@@ -2,8 +2,8 @@ package org.example;
 
 public class Meeting extends Task {
     private String topic;
-    private String project;
     private String start;
+    private String project;
 
     public Meeting(int id, String topik, String project, String start) {
         super(id);
